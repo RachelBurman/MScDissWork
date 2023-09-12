@@ -7,7 +7,8 @@ df = pd.read_csv('CurrentDF.csv', encoding='ansi')
 
 #Function to extract amount, unit, and ingredient name
 def process_ingredient(ingredient):
-    pattern = r'(?P<Amount>[\d\s/½¼¾⅓¾]+)?\s?(?P<Unit>(?!(?:egg\s*(?:whites?|yolks?|s)?))[a-zA-Z]+)?\s?(?P<Name>.*)'
+    pattern = r'(?P<Amount>[\d\s/½¼¾⅓¾]+)?\s?(?P<Unit>(?i:tablespoons?|teaspoons?|ounces?|fluid\sounces?|cups?|quarts?|pints?|gallons?|pounds?|millilitres?|grams?|kilograms?|litres?))?\s?(?P<Name>.*)'
+    #pattern = r'(?P<Amount>[\d\s/½¼¾⅓¾]+)?\s?(?P<Unit>(?!(?:egg\s*(?:whites?|yolks?|s)?))[a-zA-Z]+)?\s?(?P<Name>.*)'
     match = re.match(pattern, ingredient)
     amount = match.group('Amount').strip() if match.group('Amount') else ''
     unit = match.group('Unit').strip() if match.group('Unit') else ''
