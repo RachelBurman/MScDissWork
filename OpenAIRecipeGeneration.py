@@ -1,7 +1,7 @@
 import openai
 import pandas as pd
 
-openai.api_key = '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'
+openai.api_key = ''
 
 recipe_df = pd.read_csv('closest_recipes_pca.csv')
 ingredient_df = pd.read_csv('closest_nodes_umap_2.csv')
